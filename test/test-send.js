@@ -9,7 +9,7 @@ var smtpTransport = nodemailer.createTransport("SMTP",{
 
 Array.prototype.randomElement = function () {
     return this[Math.floor(Math.random() * this.length)]
-}
+};
 
 var froms = [
     "Fred Foo ✔ <foo@blurdybloop.com>",
