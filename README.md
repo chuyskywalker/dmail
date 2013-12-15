@@ -14,12 +14,20 @@ After fetching the git repo, jump in and...
 
 ```bash
 npm install
-node dmail.js -q5 -s2500 -h2501`
+node ./bin/dmail.js -q5 -s2500 -h2501
 ```
 
 That's it. You'll have the daemon up and running in the foreground. 
 You can point your SMTP senders at port 2500 and your browser at 2501 
 and watch emails as they come in.
+
+On a fresh AWS AMI:
+
+```bash
+$ yum --enablerepo=epel install nodejs npm
+$ npm install dmail -g
+$ dmail -q5 -s2500 -h2501
+```
 
 ## Notes
 
