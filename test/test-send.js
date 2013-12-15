@@ -19,15 +19,15 @@ var froms = [
 
 var tos = [
     "Fred Foo ✔ <foo@blurdybloop.com>",
-    "Fred Foo ✔ <foo@blurdybloop.com>, joe@hippityhop.com",
+    "<corporate@quoo.com>, joe@hippityhop.com",
     "joe@hippityhop.com",
     "billyg@ms.net, Balmer <b@ms.net>"
 ];
 
 var subjects = [
     'Your TPS report is overdue',
-    'I\'m gonna need you to stay the weekend',
-    'Whats your "O" face look like?',
+    'I\'m gonna need you to work this weekend, mk?',
+    'Lorem Ipsum. Dollar amet, franc-n-sense',
     'Hello ✔ special marks!'
 ];
 
