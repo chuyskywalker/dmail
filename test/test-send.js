@@ -1,5 +1,6 @@
 
 var nodemailer = require("nodemailer");
+var fs = require('fs');
 
 // create reusable transport method (opens pool of SMTP connections)
 var smtpTransport = nodemailer.createTransport("SMTP",{
@@ -37,6 +38,7 @@ var texts = [
 ];
 
 var htmls = [
+    fs.readFileSync(__dirname+'/index.html', "utf8"),
     "<b>Hello world ✔</b>",
     "<p>✔ Item one<p>✔ Item two<p>✔ Item 3\n"
 ];
