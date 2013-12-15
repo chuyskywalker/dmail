@@ -5,6 +5,7 @@ var argv = require('optimist')
     .demand('q').alias('q', 'queue-size').describe('q', 'How many emails to hold in the queue') //.default('q', 15)
     .demand('s').alias('s', 'smtp-listen').describe('s', 'What port the SMTP server should listen on')//.default('s', 2500)
     .demand('h').alias('h', 'http-listen').describe('h', 'What port the HTTP server should listen on')//.default('h', 2501)
+    .boolean('d').alias('d', 'debug').describe('d', 'Debug mode (quite verbose)')//.default('h', 2501)
     //.demand('i').alias('i', 'http-listen').describe('i', 'What port the SocketIO server should listen on')//.default('i', 2502)
     .argv
 ;
@@ -22,7 +23,7 @@ var mailset = [],
 
 simplesmtp.createSimpleServer({
     SMTPBanner:"Devail",
-    //debug: true,
+    debug: argv.d,
     requireAuthentication: false,
     enableAuthentication: true
 }, function(req){
@@ -30,8 +31,9 @@ simplesmtp.createSimpleServer({
     var mailparser = new MailParser();
     mailparser.on("end", function(mail_object){
         counter++;
-        console.log("Received ("+counter+"): ", mail_object.subject);
-        //console.log(mail_object);
+        if (argv.d) {
+            console.log("Received ("+counter+"): ", mail_object.subject);
+        }
         mail_object.id = counter;
         mailset.unshift(mail_object);
         if (mailset.length > queueMaxSize) {
@@ -56,7 +58,10 @@ var express = require('express')
   , server = http.createServer(app)
   , io = require('socket.io').listen(server);
 
-io.set('log level', 1);
+
+if (!argv.d) {
+    io.set('log level', 0);
+}
 
 app.use(express.logger());
 app.use(express.compress());
