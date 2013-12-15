@@ -7,13 +7,47 @@ var smtpTransport = nodemailer.createTransport("SMTP",{
     port: 2500
 });
 
+Array.prototype.randomElement = function () {
+    return this[Math.floor(Math.random() * this.length)]
+}
+
+var froms = [
+    "Fred Foo ✔ <foo@blurdybloop.com>",
+    "joe@hippityhop.com",
+    "billyg@ms.net"
+];
+
+var tos = [
+    "Fred Foo ✔ <foo@blurdybloop.com>",
+    "Fred Foo ✔ <foo@blurdybloop.com>, joe@hippityhop.com",
+    "joe@hippityhop.com",
+    "billyg@ms.net, Balmer <b@ms.net>"
+];
+
+var subjects = [
+    'Your TPS report is overdue',
+    'I\'m gonna need you to stay the weekend',
+    'Whats your "O" face look like?',
+    'Hello ✔ special marks!'
+];
+
+var texts = [
+    "Hello world ✔",
+    " ✔ Item one\n ✔ Item two\n ✔ Item 3\n"
+];
+
+var htmls = [
+    "<b>Hello world ✔</b>",
+    "<p>✔ Item one<p>✔ Item two<p>✔ Item 3\n"
+];
+
 // setup e-mail data with unicode symbols
 var mailOptions = {
-    from: "Fred Foo ✔ <foo@blurdybloop.com>", // sender address
-    to: "bar@blurdybloop.com, baz@blurdybloop.com", // list of receivers
-    subject: "Hello ✔", // Subject line
-    text: "Hello world ✔", // plaintext body
-    html: "<b>Hello world ✔</b>" // html body
+    from: froms.randomElement(), // sender address
+    to: tos.randomElement(), // list of receivers
+    subject: subjects.randomElement(), // Subject line
+    text: texts.randomElement(), // plaintext body
+    html: htmls.randomElement() // html body
 };
 
 // send mail with defined transport object
