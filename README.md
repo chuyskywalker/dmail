@@ -23,4 +23,14 @@ and watch emails as they come in.
 
 ## Notes
 
-MailCatcher is way, way more fully featured.
+ - MailCatcher is way more fully featured. You probably want that unless
+   you're interested in this from a learning perspective.
+ - Attachments "work" in the sense that they come across the wire into
+   the HTML page, but, uh, they don't render or anything. So there's that.
+ - Rendering HTML emails "leaks" content into the page. IE: style elements
+   just kinda show up. It's just `$jquery().html(content)` going on, so it's
+   not quite the same level of robustness as what Gmail/MSN/Yahoo/etc.
+   perform on HTML emails.
+ - This is WILDLY insecure. XSS from HTML emails galore, no auth around it,
+   etc, etc. It's really, truly only something you'd have on a dev machine.
+   Maybe even that's pushing it ;)
