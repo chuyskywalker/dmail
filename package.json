@@ -1,0 +1,12 @@
+{
+    "name": "devail",
+    "description": "Developer Email let's you receieve SMTP email and display it in a webpage without sending out real emails",
+    "version": "0.0.1",
+    "dependencies": {
+        "simplesmtp": "*",
+        "mailparser": "*",
+        "optimist": "*",
+        "express": "*",
+        "socket.io": "*"
+    }
+}
