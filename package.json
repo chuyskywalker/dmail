@@ -8,5 +8,8 @@
         "optimist": "*",
         "express": "*",
         "socket.io": "*"
+    },
+    "devDependencies": {
+        "nodemailer": "*"
     }
 }
