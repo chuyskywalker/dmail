@@ -2,11 +2,10 @@
 
 var argv = require('optimist')
     .usage('"Developer Email" -- SMTP Daemon with basic web functionality for catching and displaying emails.')
-    .demand('q').alias('q', 'queue-size').describe('q', 'How many emails to hold in the queue') //.default('q', 15)
-    .demand('s').alias('s', 'smtp-listen').describe('s', 'What port the SMTP server should listen on')//.default('s', 2500)
-    .demand('h').alias('h', 'http-listen').describe('h', 'What port the HTTP server should listen on')//.default('h', 2501)
-    .boolean('d').alias('d', 'debug').describe('d', 'Debug mode (quite verbose)')//.default('h', 2501)
-    //.demand('i').alias('i', 'http-listen').describe('i', 'What port the SocketIO server should listen on')//.default('i', 2502)
+    .demand('q').alias('q', 'queue-size').describe('q', 'How many emails to hold in the queue')
+    .demand('s').alias('s', 'smtp-listen').describe('s', 'What port the SMTP server should listen on')
+    .demand('h').alias('h', 'http-listen').describe('h', 'What port the HTTP server should listen on')
+    .boolean('d').alias('d', 'debug').describe('d', 'Debug mode (quite verbose)')
     .argv
 ;
 
