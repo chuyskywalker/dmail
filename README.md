@@ -6,6 +6,8 @@ emails during development
 Inspired by [MailCatcher](http://mailcatcher.me/), and fueled by some 
 weekend-warrior-coding.
 
+![dmail](https://github.com/chuyskywalker/dmail/raw/master/preview.png)
+
 ## Usage
 
 After fetching the git repo, jump in and...
