@@ -25,7 +25,7 @@ simplesmtp.createSimpleServer({
     SMTPBanner:"Devail",
     debug: argv.d,
     requireAuthentication: false,
-    enableAuthentication: true
+    enableAuthentication: false
 }, function(req){
 
     var mailparser = new MailParser();
